@@ -2,8 +2,8 @@
 header('Content-Type: application/json; charset=utf-8');
 
 $host = 'localhost';
-$user = 'root';        // 你的数据库用户名
-$pass = '123';            // 你的数据库密码
+$user = 'root';        // 用户名
+$pass = '123';            // 密码
 $dbname = 'blog';
 
 $conn = new mysqli($host, $user, $pass, $dbname);

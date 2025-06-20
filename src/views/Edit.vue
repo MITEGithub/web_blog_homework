@@ -3,7 +3,7 @@
   <div class="navbar">
     <div class="navbar-left">
       <img src="@/assets/logo.png" class="logo" />
-      <span class="title">MITE_z</span>
+      <span class="title">MITE_Blog</span>
 
       <el-button type="text" link @click="router.push('/')" class="nav-btn">
         <el-icon><HomeFilled /></el-icon> 首页
@@ -156,7 +156,6 @@ const handleSubmit = async () => {
 </script>
 
 <style scoped>
-/* 与写文章页面一致的样式 */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -228,20 +227,16 @@ const handleSubmit = async () => {
   padding: 4px 10px;
   border-radius: 6px;
 }
-
 .nav-btn .el-icon {
   color: white !important;  /* 图标也设为白色 */
   fill: white !important;
 }
-/* 保证按钮本身和里面的内容都白色显示 */
 .nav-btn {
   font-size: 15px;
   color: white !important;
   padding: 4px 10px;
   border-radius: 6px;
 }
-
-/* 强化图标颜色（针对 el-icon 和 svg） */
 .nav-btn .el-icon,
 .nav-btn .el-icon svg {
   color: white !important;

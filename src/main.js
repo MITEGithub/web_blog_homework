@@ -11,7 +11,6 @@ import '@kangc/v-md-editor/lib/style/base-editor.css'
 import VMdPreview from '@kangc/v-md-editor/lib/preview'
 import '@kangc/v-md-editor/lib/style/preview.css'
 
-// 正确的主题导入在代码中写，不是 npm install 的目标！
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress'
 import '@kangc/v-md-editor/lib/theme/style/vuepress.css'
 

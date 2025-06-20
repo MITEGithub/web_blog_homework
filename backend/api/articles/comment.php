@@ -13,7 +13,6 @@ if (!$token || !$content || !$article_id) {
     exit;
 }
 
-// 验证 token
 $stmt = $conn->prepare("SELECT id FROM users WHERE token = ?");
 $stmt->bind_param("s", $token);
 $stmt->execute();

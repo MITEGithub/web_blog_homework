@@ -46,7 +46,7 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/start' // 如果有人访问根路径，就重定向到 /start
+    redirect: '/start'
   }
 ]
 

@@ -3,7 +3,7 @@
   <div class="navbar">
     <div class="navbar-left">
       <img src="@/assets/logo.png" class="logo" />
-      <span class="title">MITE_z</span>
+      <span class="title">MITE_Blog</span>
 
       <el-button type="text" link @click="router.push('/')" class="nav-btn">
         <el-icon><HomeFilled /></el-icon> 首页

@@ -18,7 +18,6 @@ if (!$token) {
     exit;
 }
 
-// 验证 token，获取用户 id
 $stmt = $conn->prepare("SELECT id FROM users WHERE token = ?");
 $stmt->bind_param("s", $token);
 $stmt->execute();
@@ -32,7 +31,6 @@ if (!$user) {
 
 $user_id = $user['id'];
 
-// 查询文章数据
 $sql = "SELECT 
             COUNT(*) AS total,
             SUM(CASE WHEN 1 THEN 1 ELSE 0 END) AS published,
@@ -45,7 +43,6 @@ $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $article_stats = $stmt->get_result()->fetch_assoc();
 
-// 查询评论数
 $stmt2 = $conn->prepare("SELECT COUNT(*) AS comments FROM comments WHERE user_id = ?");
 $stmt2->bind_param("i", $user_id);
 $stmt2->execute();

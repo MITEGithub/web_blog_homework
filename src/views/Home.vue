@@ -1,10 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <!-- 顶部导航栏 -->
   <div class="navbar">
     <div class="navbar-left">
       <img src="@/assets/logo.png" class="logo" />
-      <span class="title">MITE_z</span>
+      <span class="title">MITE_Blog</span>
 
       <el-button type="text" link @click="router.push('/')" class="nav-btn">
         <el-icon><HomeFilled /></el-icon> 首页
@@ -53,7 +52,6 @@
       </el-card>
     </div>
 
-    <!-- 右侧文章列表 -->
     <div class="right-panel">
       <el-card>
         <template #header>
@@ -117,7 +115,6 @@ const write = () => {
   router.push('/write')
 }
 
-// 用户信息
 const userInfo = ref({
   username: '',
   email: '',
@@ -125,7 +122,6 @@ const userInfo = ref({
   role: 'user'
 })
 
-// 文章统计数据
 const stats = ref({
   total: 0,
   published: 0,
@@ -138,13 +134,11 @@ const stats = ref({
 const articles = ref([])
 const search = ref('')
 
-// 文章过滤搜索
 const filteredArticles = computed(() => {
   if (!search.value) return articles.value
   return articles.value.filter(a => a.title.includes(search.value))
 })
 
-// 显示统计配色
 const statsList = computed(() => [
   { label: '总文章', value: stats.value.total, color: '#409EFF' },
   { label: '已发布', value: stats.value.published, color: '#67C23A' },
@@ -154,7 +148,6 @@ const statsList = computed(() => [
   { label: '评论', value: stats.value.comments, color: '#303133' }
 ])
 
-// 获取用户信息
 const fetchUserInfo = async () => {
   const { data } = await axios.get('/backend/api/user_info/get.php', {
     headers: { Authorization: token }
@@ -169,7 +162,6 @@ const fetchUserInfo = async () => {
   }
 }
 
-// 获取统计
 const fetchStats = async () => {
   const { data } = await axios.get('/backend/api/user/my_stats.php', {
     headers: { Authorization: token }
@@ -177,7 +169,6 @@ const fetchStats = async () => {
   if (data.code === 0) stats.value = data.data
 }
 
-// 获取文章列表
 const fetchArticles = async () => {
   const { data } = await axios.get('/backend/api/user/my_articles.php', {
     headers: { Authorization: token }
@@ -341,7 +332,6 @@ onMounted(() => {
   color: white !important;  /* 图标也设为白色 */
   fill: white !important;
 }
-/* 保证按钮本身和里面的内容都白色显示 */
 .nav-btn {
   font-size: 15px;
   color: white !important;
@@ -349,7 +339,6 @@ onMounted(() => {
   border-radius: 6px;
 }
 
-/* 强化图标颜色（针对 el-icon 和 svg） */
 .nav-btn .el-icon,
 .nav-btn .el-icon svg {
   color: white !important;

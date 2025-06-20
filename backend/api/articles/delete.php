@@ -14,26 +14,21 @@ if (!$article_id) {
     exit;
 }
 
-// 开启事务
 $conn->begin_transaction();
 
 try {
-    // 1. 删除评论
     $stmt1 = $conn->prepare("DELETE FROM comments WHERE article_id = ?");
     $stmt1->bind_param("i", $article_id);
     $stmt1->execute();
 
-    // 2. 删除文章
     $stmt2 = $conn->prepare("DELETE FROM articles WHERE id = ?");
     $stmt2->bind_param("i", $article_id);
     $stmt2->execute();
 
-    // 提交事务
     $conn->commit();
 
     echo json_encode(['code' => 0, 'message' => '删除成功'], JSON_UNESCAPED_UNICODE);
 } catch (Exception $e) {
-    // 回滚事务
     $conn->rollback();
     echo json_encode(['code' => 1, 'error' => '删除失败：' . $e->getMessage()], JSON_UNESCAPED_UNICODE);
 }

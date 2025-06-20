@@ -2,7 +2,6 @@
 <template>
   <transition name="fade-slide">
     <div class="home-page">
-      <!-- 欢迎页 -->
       <div v-if="showWelcome" class="welcome-banner">
         <img src="@/assets/logo.png" class="banner-logo" />
         <h2>📚 我的博客系统 <span class="sparkle">✨</span></h2>
@@ -21,13 +20,11 @@
         </el-button>
       </div>
 
-      <!-- 主界面内容区域（点击开始后显示） -->
       <div v-else>
-        <!-- 顶部导航栏 -->
         <div class="navbar">
           <div class="navbar-left">)
             <img src="@/assets/logo.png" class="logo" />
-            <span class="title">MITE_z</span>
+            <span class="title">MITE_Blog</span>
             <el-button type="text" link @click="$router.push('/')" class="nav-btn">
               <el-icon><HomeFilled /></el-icon> 首页
             </el-button>
@@ -48,30 +45,24 @@
           </div>
         </div>
 
-        <!-- 主内容区域 -->
         <div class="main-wrapper">
-          <!-- 左侧文章列表 -->
           <div class="center-panel">
             <h2 class="section-title">📌 最新文章</h2>
             <div class="article-grid">
               <div v-for="article in articles" :key="article.id" class="article-card-box">
                 <el-card class="article-elcard" shadow="hover">
-                  <!-- 标题 -->
                   <h3 class="article-title" @click="$router.push(`/view/${article.id}`)">
                     📝 {{ article.title }}
                   </h3>
 
-                  <!-- 摘要 -->
                   <p class="summary">💡 {{ truncate(article.summary, 100) }}</p>
 
-                  <!-- 作者 / 时间 / 阅读数：全部左对齐 -->
                   <div class="meta-row left-align">
                     <span><el-icon><User /></el-icon> {{ article.author }}</span>
                     <span><el-icon><Clock /></el-icon> {{ formatDate(article.created_at) }}</span>
                     <span><el-icon><View /></el-icon> {{ article.views }}</span>
                   </div>
 
-                  <!-- 点赞 评论 阅读更多 -->
                   <div class="card-actions">
                     <div class="left-actions">
                       <el-button size="small" round plain @click="likeArticle(article.id)">
@@ -91,7 +82,6 @@
             </div>
           </div>
 
-          <!-- 右侧信息栏 -->
           <div class="right-panel">
             <div class="block-card">
               <div class="block-title">
@@ -151,7 +141,6 @@
           </div>
         </div>
 
-        <!-- 分页 -->
         <div class="pagination-wrapper">
           <el-pagination
             background
@@ -264,7 +253,6 @@ onMounted(() => {
   padding-bottom: 70px;
 }
 
-/* 顶部导航栏（保留左右结构） */
 .navbar {
   background: #0066ff;
   height: 52px;
@@ -298,7 +286,6 @@ onMounted(() => {
   color: #cce6ff;
 }
 
-/* ✅ 主内容区域最大宽度 + 左右留白 */
 .main-wrapper {
   max-width: 1300px;
   margin: 0 auto;
@@ -402,7 +389,6 @@ onMounted(() => {
   flex-shrink: 0;  /* 防止图标被压缩 */
 }
 
-/* 数字字号与对齐 */
 .stat-num {
   font-size: 20px;
   font-weight: bold;
@@ -410,7 +396,6 @@ onMounted(() => {
   line-height: 1;
 }
 
-/* 标签文字 */
 .stat-label {
   font-size: 14px;
   margin-top: 4px;
@@ -422,7 +407,6 @@ onMounted(() => {
 .orange { background: #e6a23c; }
 .red { background: #f56c6c; }
 
-/* ✅ 分页固定底部 + 居中 + 紧凑 */
 .pagination-wrapper {
   position: fixed;
   bottom: 16px;
@@ -434,10 +418,10 @@ onMounted(() => {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
-                .start-button {
+.start-button {
   margin-top: 20px;
 }
-                  .welcome-banner {
+.welcome-banner {
   text-align: center;
   padding: 40px 20px;
   background: #f8f9fc;
@@ -477,7 +461,7 @@ onMounted(() => {
   opacity: 0;
   transform: translateY(10px);
 }
-            .article-grid {
+.article-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
   gap: 20px;
