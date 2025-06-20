@@ -18,7 +18,7 @@ php -S localhost:8000
 
 ### 数据库部署指令
 ```
-mysql -u root -p < blog.sql
+mysql -u root -p blog < blog.sql
 
 或者你也可以之下使用下面的指令创建：
 
