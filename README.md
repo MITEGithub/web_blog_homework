@@ -12,9 +12,9 @@ npm run lint -- --fix && npm run serve (规范格式， 再启动)
 php -S localhost:8000
 
 ## blog目录下有一下文件：
-项目说明文档.pdf
-blog 文件夹 （源代码）
-blog.sql （数据库文件）
+1. 项目说明文档.pdf
+2. blog 文件夹 （源代码）
+3. blog.sql （数据库文件）
 
 ### 数据库部署指令
 ```
